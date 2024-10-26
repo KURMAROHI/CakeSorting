@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Cake Sorting.sln"
+    "dotnet.defaultSolution": "CakeSorting.sln"
 }

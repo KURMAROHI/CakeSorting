@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8610656256559835032}
   - component: {fileID: 8027727997495625425}
   - component: {fileID: 541182214656846991}
-  - component: {fileID: 2220900168485540216}
   m_Layer: 6
   m_Name: WaterMelon
   m_TagString: WaterMelon
@@ -90,21 +89,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.8694981
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &2220900168485540216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8489588418661523863}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e51ef184dc5bc4e805e9c888c81488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
-  stackObject: {fileID: 0}
-  duration: 0.5
 --- !u!1001 &739804833067817675
 PrefabInstance:
   m_ObjectHideFlags: 0

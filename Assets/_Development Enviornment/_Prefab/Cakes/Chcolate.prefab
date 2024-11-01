@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6142317266981472853}
   - component: {fileID: 8009631104080387379}
   - component: {fileID: 7004641261241841952}
-  - component: {fileID: 5438702675936673061}
   m_Layer: 6
   m_Name: Chcolate
   m_TagString: Chcolate
@@ -90,21 +89,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.88351214
   m_Center: {x: -0.005985856, y: 0.39999986, z: 0}
---- !u!114 &5438702675936673061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649718266156051326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e51ef184dc5bc4e805e9c888c81488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
-  stackObject: {fileID: 0}
-  duration: 0.5
 --- !u!1001 &883147098523917516
 PrefabInstance:
   m_ObjectHideFlags: 0

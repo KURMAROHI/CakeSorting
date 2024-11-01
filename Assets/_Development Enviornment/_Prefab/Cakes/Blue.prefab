@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8339391075856594439}
   - component: {fileID: 2712810936872890475}
   - component: {fileID: 3088803860382207679}
-  - component: {fileID: 5076710150283039500}
   m_Layer: 6
   m_Name: Blue
   m_TagString: Blue
@@ -90,21 +89,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.86949813
   m_Center: {x: 0.013449072, y: 0.58932304, z: 0.0013216732}
---- !u!114 &5076710150283039500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30885203407557072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e51ef184dc5bc4e805e9c888c81488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
-  stackObject: {fileID: 0}
-  duration: 0.5
 --- !u!1001 &272169668119338207
 PrefabInstance:
   m_ObjectHideFlags: 0

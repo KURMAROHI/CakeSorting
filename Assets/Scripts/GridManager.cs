@@ -24,7 +24,7 @@ public class GridManager : MonoBehaviour
     }
 
 
-    void Start()
+    private void Start()
     {
         int Count = 0;
         for (int i = 0; i < Column; i++)
@@ -68,36 +68,8 @@ public class GridManager : MonoBehaviour
         return CakeObjects[_Column + 1, row].gameObject;
     }
 
-    public void SetupGrid()
-    {
-        for (int i = 0; i < Row; i++)
-        {
-            for (int j = 0; j < Column; j++)
-            {
-                try
-                {
-                    Debug.Log("==>" + i + "::" + j + "::" + IsFilled[i, j]);
-                    if (IsFilled[i, j] != false)
-                    {
-                        // Debug.LogError("==>true");
-                        continue;
-                    }
-                    else
-                    {
-                        MoveGirdVertCally(j, i);
-                        break;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Debug.Log("==>" + i + "::" + j + "::");
-                    Debug.Log("==>|" + e.Message);
-                }
-            }
-        }
 
-    }
-    public void SetupGrid1()
+    public void SetupGrid()
     {
         //  CheckFilled();
 
@@ -152,12 +124,11 @@ public class GridManager : MonoBehaviour
 
     void CheckFilled()
     {
-        List<Vector2Int> _positions = new List<Vector2Int>();
         for (int i = 0; i < Column; i++)
         {
             for (int j = 0; j < Row; j++)
             {
-              //  Debug.LogError("==>" + i + "::" + j + "::" + IsFilled[i, j]);
+                //  Debug.LogError("==>" + i + "::" + j + "::" + IsFilled[i, j]);
                 if (IsFilled[i, j] != true)
                 {
                     CakeObjects[i, j] = Instantiate(Cakes[UnityEngine.Random.Range(0, Cakes.Count)], GridobejctPositins[i, j], Quaternion.identity, CakesParent);
@@ -167,16 +138,10 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    void MoveGirdVertCally(int _Column, int _row)
+
+    public bool IsValidPos(Vector2Int position)
     {
-        int ColumnCount = 0;
-        for (int i = _Column; i < Column; i++)
-        {
-            Vector3 position = GridobejctPositins[ColumnCount, _row];
-            CakeObjects[ColumnCount, _row].transform.position = position;
-            IsFilled[ColumnCount, _row] = true;
-            ColumnCount++;
-        }
+        return position.x >= 0 && position.x < Column && position.y >= 0 && position.y < Row;
     }
 
 

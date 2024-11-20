@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -380965091006425787}
   - component: {fileID: 1581154593172435943}
   m_Layer: 6
-  m_Name: Rainbow
+  m_Name: Rainbow_Old
   m_TagString: Rainbow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

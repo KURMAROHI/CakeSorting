@@ -17,8 +17,8 @@ public class GameInput : MonoBehaviour
 
 
     public event EventHandler<Transform> OnSelect_EachObject;  // call on if each Object Selected
-    public event EventHandler<OnCorrectMatch> OnCOrrect_Match; //  Call on if user conncetd _minObjectsUserNeedToConnect or more
     public event EventHandler<List<GameObject>> OnWrong_Match;  // call on if user connected less than _minObjectsUserNeedToConnect
+    public event EventHandler<OnCorrectMatch> OnCOrrect_Match; //  Call on if user conncetd _minObjectsUserNeedToConnect or more
 
     public class OnCorrectMatch : EventArgs
     {

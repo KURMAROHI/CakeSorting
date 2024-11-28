@@ -51,7 +51,7 @@ public class GridManager : MonoBehaviour
 
     private void OnCOrrect_Match(object sender, GameInput.OnCorrectMatch data)
     {
-
+        Debug.Log("Grid Manager OnCOrrect_Match");
         for (int i = 0; i < data.ConnectedObjectsPositions.Count; i++)
         {
             Vector2Int position = data.ConnectedObjectsPositions[i];
@@ -59,8 +59,12 @@ public class GridManager : MonoBehaviour
             CakeObjects[position.x, position.y] = null;
             Destroy(data.ConnectedObjects[i]);
             // data.ConnectedObjects[i].transform.Find("Parent").GetComponent<Animator>().SetTrigger(Animator.StringToHash(Destroy_Element));
-            FillDataOnSpawn(position);
+            // FillDataOnSpawn(position);
         }
+
+        // SetupGrid();
+        // FillTheEmptySlots();
+        StartCoroutine(FillTheEmptySlots());
     }
 
 
@@ -93,10 +97,9 @@ public class GridManager : MonoBehaviour
         return CakeObjects[_Column + 1, row].gameObject;
     }
 
-    #region  Moving Grid
+    #region  MovingGrid
     public void SetupGrid()
     {
-        //  CheckFilled();
 
         for (int i = 0; i < Column; i++)
         {
@@ -115,7 +118,6 @@ public class GridManager : MonoBehaviour
                         {
                             if (IsFilled[C, j] != true)
                             {
-                                // Debug.Log("==>Continue|" + C + "::" + j);
                                 continue;
                             }
                             else
@@ -142,9 +144,69 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        CheckFilled();
+        // CheckFilled();
 
 
+    }
+
+
+    private IEnumerator FillTheEmptySlots()
+    {
+        for (int i = 0; i < Column; i++)
+        {
+            for (int j = 0; j < Row; j++)
+            {
+                if (IsFilled[i, j] == true)
+                {
+                    continue;
+                }
+                else
+                {
+                    for (int m = i + 1; m < Column; m++)
+                    {
+                        if (IsFilled[m, j] == true)
+                        {
+                            yield return new WaitForSeconds(0.03f);
+                            StartCoroutine(AnimateCakes(CakeObjects[m, j].transform, GridobejctPositions[i, j]));
+                            IsFilled[i, j] = true;
+                            CakeObjects[i, j] = CakeObjects[m, j].gameObject;
+                            CakeObjects[m, j] = null;
+                            IsFilled[m, j] = false;
+                            break;
+                        }
+
+                        // if (CakeObjects[C, j] != null)
+                        // {
+                        //     CakeObjects[C, j].transform.position = GridobejctPositions[i, j];
+                        //     IsFilled[i, j] = true;
+                        //     CakeObjects[i, j] = CakeObjects[C, j].gameObject;
+                        //     CakeObjects[C, j] = null;
+                        //     IsFilled[C, j] = false;
+                        //     break;
+                        // }
+                    }
+                }
+
+            }
+        }
+    }
+
+    private IEnumerator AnimateCakes(Transform currentObject, Vector3 destPosition)
+    {
+        float duration = 0.25f;
+        // Debug.Log("Dist:" + Vector3.Distance(currentObject.position, destPosition));
+        duration = Vector3.Distance(currentObject.position, destPosition) / 15;
+        // Debug.Log("duration:" + duration);
+        Vector3 startPosition = currentObject.transform.position;
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            currentObject.transform.position = Vector3.Lerp(startPosition, destPosition, Mathf.Clamp01(elapsedTime / duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        currentObject.transform.position = destPosition;
     }
     #endregion
 

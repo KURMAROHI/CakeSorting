@@ -38,14 +38,14 @@ public class UIControl : MonoBehaviour
 
         // for (int i = 0; i < data.ConnectedObjects.Count; i++)
         // {
-
         // }
     }
 
-    
+
 
     private void OnSelect_EachObject(object sender, Transform selectedObject)
     {
+        // Debug.Log("OnSelect_EachObject:" + selectedObject.name + "::" + selectedObject.localScale);
         selectedObject.localScale = selectedObject.localScale * _highLightScale;
     }
 }
